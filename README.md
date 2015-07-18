@@ -1,5 +1,7 @@
 # Shorthand
 
+[![Packagist](https://img.shields.io/packagist/v/goblindegook/shorthand.svg)](https://packagist.org/packages/goblindegook/shorthand) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/goblindegook/shorthand/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/goblindegook/shorthand/?branch=master)
+
 A bunch of shortcodes developed for my site, [goblindegook.net](http://goblindegook.net/).  [Shortcake](https://github.com/fusioneng/Shortcake) is supported because, honestly, who doesn't love cake?
 
 ## Installation

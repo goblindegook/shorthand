@@ -21,10 +21,8 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
     require_once __DIR__ . '/vendor/autoload.php';
 }
 
+require_once __DIR__ . '/constants.php';
 require_once __DIR__ . '/functions.php';
-
-define( 'SHORTHAND_URL', \plugin_dir_url( __FILE__ ) );
-define( 'SHORTHAND_VERSION', '1.0.0' );
 
 \add_action( 'init', function () {
 	$shortcodes = array(
