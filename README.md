@@ -47,7 +47,7 @@ It's up to developers to enqueue their own replacement styles for the frontend a
 #### Parameters
 
 `$enabled`
-: Shorthand styles flag to filter (default is `true`).
+: _(boolean)_ Shorthand styles flag to filter (default is `true`).
 
 ### Filter: `shorthand_shortcode`
 
@@ -56,13 +56,13 @@ Allows plugin and theme developers to filter the output of a shortcode.
 #### Parameters
 
 `$output`
-: Shortcode output to filter.
+: _(string)_ Shortcode output to filter.
 
 `$atts`
-: Shortcode attributes.
+: _(array)_ Shortcode attributes.
 
 `$content`
-: Original inner content (for closing shortcodes).
+: _(string)_ Original inner content (for closing shortcodes).
 
 `$tag`
-: Shortcode tag.
+: _(string)_ Shortcode tag.
