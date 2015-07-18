@@ -2,7 +2,7 @@
 
 [![Packagist](https://img.shields.io/packagist/v/goblindegook/shorthand.svg)](https://packagist.org/packages/goblindegook/shorthand) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/goblindegook/shorthand/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/goblindegook/shorthand/?branch=master)
 
-A bunch of shortcodes developed for my site, [goblindegook.net](http://goblindegook.net/).  [Shortcake](https://github.com/fusioneng/Shortcake) is supported because, honestly, who doesn't love cake?
+A bunch of shortcodes developed for my site, now offered to the public.  [Shortcake](https://github.com/fusioneng/Shortcake) is supported because, honestly, who doesn't love cake?
 
 ## Installation
 
@@ -43,3 +43,26 @@ Allows plugin and theme developers to turn off the stylesheet bundled with Short
 The quickest way to accomplish this is calling `add_filter( 'shorthand_styles_enabled', '__return_false' );` at the `init` step.
 
 It's up to developers to enqueue their own replacement styles for the frontend as well as Shortcake's live preview.
+
+#### Parameters
+
+`$enabled`
+: Shorthand styles flag to filter (default is `true`).
+
+### Filter: `shorthand_shortcode`
+
+Allows plugin and theme developers to filter the output of a shortcode.
+
+#### Parameters
+
+`$output`
+: Shortcode output to filter.
+
+`$atts`
+: Shortcode attributes.
+
+`$content`
+: Original inner content (for closing shortcodes).
+
+`$tag`
+: Shortcode tag.
