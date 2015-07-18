@@ -2,9 +2,10 @@
 
 namespace goblindegook\WP\Shorthand;
 
-use \Syllables\Shortcode;
-
-class Underline extends Shortcode {
+/**
+ * Implements the [u] shortcode for underlined text.
+ */
+class Underline extends \Syllables\Shortcode {
 
 	/**
 	 * Shortcode constructor.

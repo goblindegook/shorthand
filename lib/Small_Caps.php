@@ -2,9 +2,10 @@
 
 namespace goblindegook\WP\Shorthand;
 
-use \Syllables\Shortcode;
-
-class Small_Caps extends Shortcode {
+/**
+ * Implements the [small-caps] shortcode for text in small caps.
+ */
+class Small_Caps extends \Syllables\Shortcode {
 
 	/**
 	 * Shortcode constructor.

@@ -38,9 +38,31 @@ function styles_enabled() {
 }
 
 
+/**
+ * Register shortcode UI using Shortcake.
+ * @param \Syllables\Shortcode $shortcode Shortcode object.
+ */
+function register_ui( \Syllables\Shortcode $shortcode ) {
+	if ( ! function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
+		return;
+	}
+
+	if ( ! method_exists( $shortcode, 'get_ui' ) ) {
+		return;
+	}
+
+	\shortcode_ui_register_for_shortcode( $shortcode->get_tag(), $shortcode->get_ui() );
+
+	\add_action( 'shortcode_ui_after_do_shortcode', function( $tag ) use ( $shortcode ) {
+		if ( stripos( $tag, '[' . $shortcode->get_tag() ) !== false && styles_enabled() ) {
+			// Enqueue styles in the Shortcake live preview:
+			echo '<link rel="stylesheet" href="' . \esc_url( SHORTHAND_URL . 'public/style.css' ) . '">';
+		}
+	});
+}
+
+
 \add_action( 'init', function () {
-	$shortcake = function_exists( 'shortcode_ui_register_for_shortcode' );
-	
 	$shortcodes = array(
 		new Shorthand\Pull_Quote(),
 		new Shorthand\Small_Caps(),
@@ -49,20 +71,12 @@ function styles_enabled() {
 
 	foreach ( $shortcodes as &$shortcode ) {
 		$shortcode->replace();
-
-		if ( $shortcake && method_exists( $shortcode, 'get_ui' ) ) {
-			\shortcode_ui_register_for_shortcode( $shortcode->get_tag(), $shortcode->get_ui() );
-		}
-
-		\add_action( 'shortcode_ui_after_do_shortcode', function( $tag ) use ( $shortcode ) {
-			if ( stripos( $tag, '[' . $shortcode->get_tag() ) !== false && styles_enabled() ) {
-				echo '<link rel="stylesheet" href="' . \esc_url( SHORTHAND_URL . 'public/style.css' ) . '">';
-			}
-		});
+		register_ui( $shortcode );
 	}
 
 	\add_action( 'wp_enqueue_scripts', function() {
 		if ( styles_enabled() ) {
+			// Enqueue frontend styles:
 			\wp_enqueue_style( 'shorthand', SHORTHAND_URL . 'public/style.css',
 				array(), SHORTHAND_VERSION );
 		}
