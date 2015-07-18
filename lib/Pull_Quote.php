@@ -42,8 +42,6 @@ class Pull_Quote extends Shortcode {
      * @return array Admin UI arguments.
      */
     public function get_ui() {
-    	$tag = $this->get_tag();
-
 		return array(
 			'label'         => esc_html__( 'Pull Quote', 'shorthand' ),
 			'listItemImage' => 'dashicons-editor-quote',
