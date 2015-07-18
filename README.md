@@ -16,21 +16,21 @@ If you want to know more about using Composer with WordPress, there's [a good in
 
 ### Pull Quote
 
-Renders a pull quote aside block with `pull-quote` and `pull-quote--{{align}}` classes.  Integrates with Shortcake.
+Renders a pull quote aside block with `pull-quote` and `pull-quote--<center|left|right>` classes.  Integrates with Shortcake.
 
-**Usage:** `[pull-quote align="<left|center|right>"]{{content}}[/pull-quote]`
+**Usage:** `[pull-quote align="<center|left|right>"]CONTENT[/pull-quote]`
 
 ### Small Caps
 
 Renders an inline element with a `small-caps` class.
 
-**Usage:** `[small-caps]{{content}}[/small-caps]`
+**Usage:** `[small-caps]CONTENT[/small-caps]`
 
 ### Underline
 
 Renders an inline element with an `underline` class.
 
-**Usage:** `[u]{{content}}[/u]`
+**Usage:** `[u]CONTENT[/u]`
 
 ## Hooks
 
