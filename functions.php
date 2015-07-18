@@ -19,12 +19,8 @@ function styles_enabled() {
  * Register shortcode UI using Shortcake.
  * @param \Syllables\Shortcode $shortcode Shortcode object.
  */
-function register_ui( \Syllables\Shortcode $shortcode ) {
+function register_ui( Shortcode $shortcode ) {
 	if ( ! function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
-		return;
-	}
-
-	if ( ! method_exists( $shortcode, 'get_ui' ) ) {
 		return;
 	}
 

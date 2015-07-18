@@ -5,7 +5,7 @@ namespace goblindegook\WP\Shorthand;
 /**
  * Implements the [u] shortcode for underlined text.
  */
-class Underline extends \Syllables\Shortcode {
+class Underline extends Shortcode {
 
 	/**
 	 * Shortcode constructor.
@@ -21,7 +21,7 @@ class Underline extends \Syllables\Shortcode {
 	 * @param  string $content (Optional) Content enclosed in shortcode.
 	 * @return string          The rendered shortcode.
 	 */
-	public function render( $atts, $content = '' ) {
+	public function render( $atts, $content = null, $tag = null ) {
 		return sprintf( '<span class="underline">%s</span>',
 			\do_shortcode( $content ) );
 	}

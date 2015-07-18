@@ -5,7 +5,7 @@ namespace goblindegook\WP\Shorthand;
 /**
  * Implements the [pull-quote] shortcode.
  */
-class Pull_Quote extends \Syllables\Shortcode {
+class Pull_Quote extends Shortcode {
 
 	/**
 	 * Shortcode constructor.
@@ -22,7 +22,7 @@ class Pull_Quote extends \Syllables\Shortcode {
      * @param  string $tag     (Optional) Shortcode tag being rendered.
      * @return string          The rendered shortcode.
      */
-    public function render( $atts, $content = '', $tag = null ) {
+    public function render( $atts, $content = null, $tag = null ) {
     	$atts = \shortcode_atts( array(
     		'align' => 'center',
     	), $atts, $tag );
