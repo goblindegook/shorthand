@@ -30,4 +30,14 @@ class Small_Caps extends Shortcode {
 			$tag, \do_shortcode( $content ) );
 	}
 
+	/**
+	 * Shortcode styles.
+	 * @return array Style assets.
+	 */
+    public function get_styles() {
+    	return array(
+	    	'shorthand-small-caps' => SHORTHAND_URL . 'public/small-caps.css',
+    	);
+    }
+
 }

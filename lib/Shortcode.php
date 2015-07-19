@@ -50,6 +50,7 @@ abstract class Shortcode {
 	 * Registers the shortcode hook.
 	 *
 	 * @uses \add_shortcode()
+	 * @uses \shortcode_exists()
 	 */
 	final public function add() {
 		if ( \shortcode_exists( $this->tag ) ) {
@@ -82,6 +83,8 @@ abstract class Shortcode {
 	 * @param  string $content (Optional) Content enclosed in shortcode.
 	 * @param  string $tag     (Optional) Shortcode tag.
 	 * @return string          The rendered shortcode.
+	 *
+	 * @uses \apply_filters()
 	 */
 	final public function output( $atts, $content = null, $tag = null ) {
 		if ( empty( $tag ) ) {
@@ -89,6 +92,10 @@ abstract class Shortcode {
 		}
 
 		$output = $this->render( $atts, $content, $tag );
+
+		if ( $output !== '' ) {
+			$this->enqueue_assets();
+		}
 
 		/**
 		 * Filters the shortcode shortcode output.
@@ -103,6 +110,26 @@ abstract class Shortcode {
 	}
 
 	/**
+	 * Enqueue scripts and styles.
+	 *
+	 * @uses \wp_enqueue_script()
+	 * @uses \wp_enqueue_style()
+	 */
+	final public function enqueue_assets() {
+		$scripts = filter_assets( 'scripts', $this->get_scripts(), $this->tag );
+
+		foreach ( $scripts as $handle => $script ) {
+			\wp_enqueue_script( $handle, $script, array(), SHORTHAND_VERSION );
+		}
+
+		$styles = filter_assets( 'styles', $this->get_styles(), $this->tag );
+
+		foreach ( $styles as $handle => $style ) {
+			\wp_enqueue_style( $handle, $style, array(), SHORTHAND_VERSION );
+		}
+	}
+
+	/**
 	 * Renders the hooked shortcode.
 	 *
 	 * Override this to render your own shortcodes in a subclass.
@@ -111,8 +138,6 @@ abstract class Shortcode {
 	 * @param  string $content (Optional) Content enclosed in shortcode.
 	 * @param  string $tag     (Optional) Shortcode tag.
 	 * @return string          The rendered shortcode.
-	 *
-	 * @uses \apply_filters()
 	 */
 	public function render( $atts, $content = null, $tag = null ) {
 
@@ -127,7 +152,23 @@ abstract class Shortcode {
 	 * Shortcode UI arguments.
 	 * @return array UI configuration.
 	 */
-	public function ui() {
+	public function get_ui() {
+		return array();
+	}
+
+	/**
+	 * Shortcode styles.
+	 * @return array Style assets.
+	 */
+	public function get_styles() {
+		return array();
+	}
+
+	/**
+	 * Shortcode scripts.
+	 * @return array Script assets.
+	 */
+	public function get_scripts() {
 		return array();
 	}
 }

@@ -36,18 +36,37 @@ Renders an inline element with an `underline` class.
 
 ## Hooks
 
-### Filter: `shorthand_styles_enabled`
+### Filter: `shorthand_scripts`
 
-Allows plugin and theme developers to turn off the stylesheet bundled with Shorthand.
+Allows plugin and theme developers to filter or turn off the scripts bundled with Shorthand.
 
-The quickest way to accomplish this is calling `add_filter( 'shorthand_styles_enabled', '__return_false' );` at the `init` step.
+The quickest way to disable them completely is by calling `add_filter( 'shorthand_scripts', '__return_empty_array' );` at the `init` step.
+
+It's up to developers to enqueue their own replacement scripts for the frontend as well as Shortcake's live preview.
+
+#### Parameters
+
+`$scripts`
+: _(array)_ Script URLs as _(handle, URL)_ pairs.
+
+`$tag`
+: _(string)_ Shortcode tag name.
+
+### Filter: `shorthand_styles`
+
+Allows plugin and theme developers to filter or turn off the stylesheets bundled with Shorthand.
+
+The quickest way to disable them completely is by calling `add_filter( 'shorthand_styles', '__return_empty_array' );` at the `init` step.
 
 It's up to developers to enqueue their own replacement styles for the frontend as well as Shortcake's live preview.
 
 #### Parameters
 
-`$enabled`
-: _(boolean)_ Shorthand styles flag to filter (default is `true`).
+`$styles`
+: _(array)_ Stylesheet URLs as _(handle, URL)_ pairs.
+
+`$tag`
+: _(string)_ Shortcode tag name.
 
 ### Filter: `shorthand_shortcode`
 

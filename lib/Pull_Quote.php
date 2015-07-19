@@ -42,7 +42,7 @@ class Pull_Quote extends Shortcode {
      * 
      * @return array Shortcode UI arguments.
      */
-    public function ui() {
+    public function get_ui() {
 		return array(
 			'label'         => \esc_html__( 'Pull Quote', 'shorthand' ),
 			'listItemImage' => 'dashicons-editor-quote',
@@ -62,6 +62,16 @@ class Pull_Quote extends Shortcode {
 				),
 			),
 		);
+    }
+
+	/**
+	 * Shortcode styles.
+	 * @return array Style assets.
+	 */
+    public function get_styles() {
+    	return array(
+	    	'shorthand-pull-quote' => SHORTHAND_URL . 'public/pull-quote.css',
+    	);
     }
 
 }

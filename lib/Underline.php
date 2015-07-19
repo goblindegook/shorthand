@@ -30,4 +30,14 @@ class Underline extends Shortcode {
 			\do_shortcode( $content ) );
 	}
 
+	/**
+	 * Shortcode styles.
+	 * @return array Style assets.
+	 */
+    public function get_styles() {
+    	return array(
+	    	'shorthand-underline' => SHORTHAND_URL . 'public/underline.css',
+    	);
+    }
+
 }

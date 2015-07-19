@@ -38,11 +38,4 @@ require_once __DIR__ . '/functions.php';
 		register_ui( $shortcode );
 	}
 
-	\add_action( 'wp_enqueue_scripts', function() {
-		if ( styles_enabled() ) {
-			// Enqueue frontend styles:
-			\wp_enqueue_style( 'shorthand', SHORTHAND_URL . 'public/style.css',
-				array(), SHORTHAND_VERSION );
-		}
-	} );
 } );
