@@ -1,4 +1,7 @@
 <?php
+/**
+ * Plugin functions.
+ */
 
 namespace goblindegook\WP\Shorthand;
 
@@ -24,7 +27,7 @@ function register_ui( Shortcode $shortcode ) {
 		return;
 	}
 
-	\shortcode_ui_register_for_shortcode( $shortcode->get_tag(), $shortcode->get_ui() );
+	\shortcode_ui_register_for_shortcode( $shortcode->get_tag(), $shortcode->ui() );
 
 	\add_action( 'shortcode_ui_after_do_shortcode', function( $tag ) use ( $shortcode ) {
 		if ( stripos( $tag, '[' . $shortcode->get_tag() ) !== false && styles_enabled() ) {

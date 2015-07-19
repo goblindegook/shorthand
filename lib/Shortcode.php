@@ -1,9 +1,8 @@
 <?php
 /**
- * Implements shortcode utilities.
- *
- * @since 0.3.0
+ * Abstract shortcode class.
  */
+
 namespace goblindegook\WP\Shorthand;
 
 /**
@@ -11,7 +10,7 @@ namespace goblindegook\WP\Shorthand;
  *
  * @since 0.3.0
  */
-class Shortcode {
+abstract class Shortcode {
 
 	/**
 	 * Shortcode tag.
@@ -43,16 +42,8 @@ class Shortcode {
 	 *
 	 * @return string Shortcode tag.
 	 */
-	public function get_tag() {
+	final public function get_tag() {
 		return $this->tag;
-	}
-
-	/**
-	 * Gets the shortcode admin UI.
-	 * @return array UI configuration.
-	 */
-	public function get_ui() {
-		return array();
 	}
 
 	/**
@@ -60,7 +51,7 @@ class Shortcode {
 	 *
 	 * @uses \add_shortcode()
 	 */
-	public function add() {
+	final public function add() {
 		if ( \shortcode_exists( $this->tag ) ) {
 			throw new \Exception( "Shortcode `{$this->tag}` exists." );
 		}
@@ -72,14 +63,14 @@ class Shortcode {
 	 *
 	 * @uses \remove_shortcode()
 	 */
-	public function remove() {
+	final public function remove() {
 		\remove_shortcode( $this->tag );
 	}
 
 	/**
 	 * Replaces the callback for this shortcode tag.
 	 */
-	public function replace() {
+	final public function replace() {
 		$this->remove();
 		$this->add();
 	}
@@ -130,5 +121,13 @@ class Shortcode {
 		}
 
 		return $content;
+	}
+
+	/**
+	 * Shortcode UI arguments.
+	 * @return array UI configuration.
+	 */
+	public function ui() {
+		return array();
 	}
 }

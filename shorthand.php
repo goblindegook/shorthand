@@ -1,13 +1,15 @@
 <?php
-/*
-Plugin Name: Shorthand
-Plugin URI:  https://github.com/goblindegook/shorthand
-Description: A shortcode pack, from my site to yours.
-Version:     1.0.0
-Author:      Luís Rodrigues
-Author URI:  http://goblindegook.net/
-License:     GPLv2
-*/
+/**
+ * Plugin Name: Shorthand
+ * Plugin URI:  https://github.com/goblindegook/shorthand
+ * Description: A shortcode pack, from my site to yours.
+ * Version:     1.0.0
+ * Author:      Luís Rodrigues
+ * Author URI:  http://goblindegook.net/
+ * License:     GPLv2
+ *
+ * Main plugin file.
+ */
 
 namespace goblindegook\WP\Shorthand;
 

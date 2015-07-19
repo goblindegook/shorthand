@@ -1,4 +1,7 @@
 <?php
+/**
+ * Implements the [small-caps] shortcode for text in small caps.
+ */
 
 namespace goblindegook\WP\Shorthand;
 

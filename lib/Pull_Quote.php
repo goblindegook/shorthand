@@ -1,4 +1,7 @@
 <?php
+/**
+ * Implements the [pull-quote] shortcode.
+ */
 
 namespace goblindegook\WP\Shorthand;
 
@@ -35,11 +38,11 @@ class Pull_Quote extends Shortcode {
     }
 
     /**
-     * Get admin UI arguments.
+     * Shortcode UI arguments.
      * 
-     * @return array Admin UI arguments.
+     * @return array Shortcode UI arguments.
      */
-    public function get_ui() {
+    public function ui() {
 		return array(
 			'label'         => \esc_html__( 'Pull Quote', 'shorthand' ),
 			'listItemImage' => 'dashicons-editor-quote',

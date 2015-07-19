@@ -1,5 +1,11 @@
+# Operating system
+.DS_Store
+
+# Documentation
+/docs/
+
+# Dependency management
 .sass-cache/
 node_modules/
 vendor/
-.DS_Store
 composer.lock
