@@ -27,7 +27,13 @@ function register_ui( Shortcode $shortcode ) {
 		return;
 	}
 
-	\shortcode_ui_register_for_shortcode( $shortcode->get_tag(), $shortcode->ui() );
+	$ui = $shortcode->ui();
+
+	if ( empty( $ui ) ) {
+		return;
+	}
+
+	\shortcode_ui_register_for_shortcode( $shortcode->get_tag(), $ui );
 
 	\add_action( 'shortcode_ui_after_do_shortcode', function( $tag ) use ( $shortcode ) {
 		if ( stripos( $tag, '[' . $shortcode->get_tag() ) !== false && styles_enabled() ) {
