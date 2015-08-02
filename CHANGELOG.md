@@ -1,4 +1,9 @@
-# Change Log
+# Changelog
+
+## Version 1.2.0
+
+* Removed dependency on Syllables.
+* Removed `shorthand_styles_enabled`, replaced with the `shorthand_styles` and `shorthand_scripts` filters.
 
 ## Version 1.1.0
 
